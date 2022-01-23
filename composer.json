@@ -1,0 +1,46 @@
+{
+    "name": "adecks/trafficza",
+    "description": "This is a convinient PHP Package that interacts with the https://www.i-traffic.co.za ",
+    "keywords": [
+        "adecks",
+        "itrafficza",
+        "South-Africa",
+        "Traffic",
+        "Routes"
+    ],
+    "homepage": "https://github.com/AndreKendeck/trafficza",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Andre Kendeck",
+            "email": "andrekendeck@icloud.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "guzzlehttp/guzzle": "^7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Adecks\\TrafficZA\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Adecks\\TrafficZA\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
