@@ -3,7 +3,6 @@
 namespace Adecks\TrafficZA;
 
 use JsonSerializable;
-use \Carbon\Carbon;
 
 
 /**
@@ -94,9 +93,9 @@ class Event implements JsonSerializable
     protected ?string $lanesStatus;
 
     /**
-     * @var string|null
+     * @var array|null
      */
-    protected ?string $lcsEntries;
+    protected ?array $lcsEntries;
 
     /**
      * @var string
@@ -145,6 +144,9 @@ class Event implements JsonSerializable
     {
         foreach ($data as $property => $value) {
             $property = lcfirst($property);
+            if ($property === 'iD') {
+                $property = strtolower($property);
+            }
             $this->{$property} = $value;
         }
     }
@@ -278,9 +280,9 @@ class Event implements JsonSerializable
     }
 
     /**
-     * @return string|null
+     * @return array|null
      */
-    public function getLcsEntries(): ?string
+    public function getLcsEntries(): ?array
     {
         return $this->lcsEntries;
     }
@@ -448,71 +450,127 @@ class Event implements JsonSerializable
         $this->roadwayName = $roadwayName;
     }
 
+    /**
+     * @param string $directionOfTravel
+     * @return void
+     */
     public function setDirectionOfTravel(string $directionOfTravel): void
     {
         $this->directionOfTravel = $directionOfTravel;
     }
 
+    /**
+     * @param string $description
+     * @return void
+     */
     public function setDescription(string $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param string $location
+     * @return void
+     */
     public function setLocation(string $location): void
     {
         $this->location = $location;
     }
 
+    /**
+     * @param string $lanesAffected
+     * @return void
+     */
     public function setLanesAffected(string $lanesAffected): void
     {
         $this->lanesAffected = $lanesAffected;
     }
 
-    public function setLanesStatus($lanesStatus): void
+    /**
+     * @param string $lanesStatus
+     * @return void
+     */
+    public function setLanesStatus(string $lanesStatus): void
     {
         $this->lanesStatus = $lanesStatus;
     }
 
-    public function setLcsEntries($lcsEntries): void
+    /**
+     * @param string $lcsEntries
+     * @return void
+     */
+    public function setLcsEntries(string $lcsEntries): void
     {
         $this->lcsEntries = $lcsEntries;
     }
 
+    /**
+     * @param string $navteqLinkId
+     * @return void
+     */
     public function setNavteqLinkId(string $navteqLinkId): void
     {
         $this->navteqLinkId = $navteqLinkId;
     }
 
-    public function setPrimaryLocation($primaryLocation): void
+    /**
+     * @param string $primaryLocation
+     * @return void
+     */
+    public function setPrimaryLocation(string $primaryLocation): void
     {
         $this->primaryLocation = $primaryLocation;
     }
 
-    public function setSecondaryLocation($secondaryLocation): void
+    /**
+     * @param string $secondaryLocation
+     * @return void
+     */
+    public function setSecondaryLocation(string $secondaryLocation): void
     {
         $this->secondaryLocation = $secondaryLocation;
     }
 
-    public function setFirstArticleCity($firstArticleCity): void
+    /**
+     * @param string $firstArticleCity
+     * @return void
+     */
+    public function setFirstArticleCity(string $firstArticleCity): void
     {
         $this->firstArticleCity = $firstArticleCity;
     }
 
-    public function setSecondCity($secondCity): void
+    /**
+     * @param string $secondCity
+     * @return void
+     */
+    public function setSecondCity(string $secondCity): void
     {
         $this->secondCity = $secondCity;
     }
 
+    /**
+     * @param string $eventType
+     * @return void
+     */
     public function setEventType(string $eventType): void
     {
         $this->eventType = $eventType;
     }
 
+    /**
+     * @param string $eventSubType
+     * @return void
+     */
     public function setEventSubType(string $eventSubType): void
     {
         $this->eventSubType = $eventSubType;
     }
 
+    /**
+     * @param mixed $mapEncodedPolyline
+     * @return void
+     */
     public function setMapEncodedPolyline($mapEncodedPolyline): void
     {
         $this->mapEncodedPolyline = $mapEncodedPolyline;
@@ -524,7 +582,7 @@ class Event implements JsonSerializable
      */
     public function __toString()
     {
-        return (string) $this->jsonSerialize();
+        return json_encode($this->jsonSerialize());
     }
 
     public function jsonSerialize(): mixed

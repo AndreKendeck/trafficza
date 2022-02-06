@@ -9,7 +9,7 @@ class Traffic
 {
 
     /** @var string */
-    const URL = 'https://www.i-traffic.co.za/api';
+    public const URL = 'https://www.i-traffic.co.za/api';
 
     /**
      * @var array
@@ -40,6 +40,23 @@ class Traffic
         if (!in_array($format, ['json', 'xml'])) {
             throw new Exception('Only JSON or XML is an accepted format');
         }
+        $this->format = $format;
+    }
+
+    /**
+     * @return string
+     */
+    public function getApiKey(): string
+    {
+        return $this->apiKey;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResponseFormat(): string
+    {
+        return $this->format;
     }
 
     /**
