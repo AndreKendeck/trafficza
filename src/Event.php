@@ -2,6 +2,7 @@
 
 namespace Adecks\TrafficZA;
 
+use Adecks\TrafficZA\Concerns\HasCoordinates;
 use JsonSerializable;
 
 
@@ -9,23 +10,14 @@ use JsonSerializable;
  * A wrapper class for events
  * @see https://www.i-traffic.co.za/developers/help/api/get-api-getevents_key_format
  */
-class Event implements JsonSerializable
+class Event extends TrafficModel implements JsonSerializable
 {
-
+    use HasCoordinates;
+ 
     /**
      * @var string
      */
     protected string $lastUpdated;
-
-    /**
-     * @var float
-     */
-    protected float $latitude;
-
-    /**
-     * @var float
-     */
-    protected float $longitude;
 
     /**
      * @var string
@@ -136,20 +128,6 @@ class Event implements JsonSerializable
      * @var string|null
      */
     protected ?string $mapEncodedPolyline;
-
-    /**
-     * @param array $data
-     */
-    public function __construct(array $data = [])
-    {
-        foreach ($data as $property => $value) {
-            $property = lcfirst($property);
-            if ($property === 'iD') {
-                $property = strtolower($property);
-            }
-            $this->{$property} = $value;
-        }
-    }
 
     /**
      * @return string

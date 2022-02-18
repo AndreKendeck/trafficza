@@ -4,7 +4,7 @@ namespace Adecks\TrafficZA;
 
 use JsonSerializable;
 
-class Roadway implements JsonSerializable
+class Roadway extends TrafficModel implements JsonSerializable
 {
     /**
      * @var string
@@ -15,16 +15,6 @@ class Roadway implements JsonSerializable
      * @var integer
      */
     protected int $sortOrder;
-
-    /**
-     * @param string $roadwayName
-     * @param integer|null $sortOrder
-     */
-    public function __construct(string $roadwayName, int $sortOrder = null)
-    {
-        $this->roadwayName = $roadwayName;
-        $this->sortOrder = $sortOrder;
-    }
 
     /**
      * @return string

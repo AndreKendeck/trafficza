@@ -1,2 +1,4 @@
 vendor
 .styleci.yml
+composer.lock
+.phpunit.result.cache

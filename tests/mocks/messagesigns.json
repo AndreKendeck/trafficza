@@ -1,0 +1,26 @@
+[
+    {
+        "Latitude": -25.87196,
+        "Longitude": 28.18277,
+        "ID": "GP-VMS-VMS BF_2",
+        "Name": "N14S before Brakfontein",
+        "Roadway": "N14",
+        "DirectionOfTravel": "Westbound",
+        "Messages": [
+            "TRAVEL TO\nBUCCLEUCH\n13 MINS",
+            "TRAVEL TO\nW NICOL\n23 MINS"
+        ]
+    },
+    {
+        "Latitude": -26.059831,
+        "Longitude": 27.985604,
+        "ID": "GP-VMS-VMS ML_1",
+        "Name": "N1 SOUTH BEFORE M.B",
+        "Roadway": "N1",
+        "DirectionOfTravel": "Southbound",
+        "Messages": [
+            "TRAVEL TIME TO\n14TH AVE I/C\n7 MINUTES",
+            "TRAVEL TIME TO\nGOLDEN HWY I/C\n17 MINUTES"
+        ]
+    }
+]

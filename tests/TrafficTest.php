@@ -26,6 +26,7 @@ class TrafficTest extends TestCase
         $events = array_map(function (array $event) {
             return new Event($event);
         }, $eventData);
+        /** @var \PHPUnit\Framework\MockObject\MockObject $trafficMock */
         $trafficMock = $this->createMock(Traffic::class);
         $trafficMock->method('getEvents')->willReturn($events);
         $this->assertIsArray($trafficMock->getEvents());

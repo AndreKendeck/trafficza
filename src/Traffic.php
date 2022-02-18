@@ -60,6 +60,82 @@ class Traffic
     }
 
     /**
+     * Get message signs
+     * @see https://www.i-traffic.co.za/developers/help/api/get-api-getmessagesigns_key_format 
+     * @return array
+     */
+    public function getMessageSigns(): array
+    {
+        try {
+            $response = $this->getApiClient()->get('/messagesigns');
+            if ($response->getStatusCode() === 200) {
+                return array_map(function (array $data) {
+                    return new MessageSign($data);
+                }, json_decode($response->getBody(), true));
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * Get Roadways 
+     * @see https://www.i-traffic.co.za/developers/help/api/get-api-getroadways_key_format
+     * @return array
+     */
+    public function getRoadways(): array
+    {
+        try {
+            $response = $this->getApiClient()->get('/getroadways');
+            if ($response->getStatusCode() === 200) {
+                return array_map(function (array $data) {
+                    return new Roadway($data);
+                }, json_decode($response->getBody(), true));
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * Get all cameras
+     * @see https://www.i-traffic.co.za/developers/help/api/get-api-getcameras_key_format
+     * @return array
+     */
+    public function getCameras(): array
+    {
+        try {
+            $response = $this->getApiClient()->get('/getcameras');
+            if ($response->getStatusCode() === 200) {
+                return array_map(function (array $data) {
+                    return new Camera($data);
+                }, json_decode($response->getBody(), true));
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * Get all alerts
+     * @see https://www.i-traffic.co.za/developers/help/api/get-api-getalerts_key_format
+     * @return array
+     */
+    public function getAlerts(): array
+    {
+        try {
+            $response = $this->getApiClient()->get('/getalerts');
+            if ($response->getStatusCode() === 200) {
+                return array_map(function (array $data) {
+                    return new Alert($data);
+                }, json_decode($response->getBody(), true));
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    /**
      * Get all events
      * @see https://www.i-traffic.co.za/developers/help/api/get-api-getevents_key_format
      * @return array
@@ -67,19 +143,8 @@ class Traffic
     public function getEvents(): array
     {
         try {
-
-            $guzzleClient = new Client([
-                'base_uri' => self::URL,
-                'headers' => self::REQUEST_HEADERS,
-            ]);
-
             /** @var \Psr\Http\Message\ResponseInterface $response  */
-            $response = $guzzleClient->get("/getevents", [
-                'query' => [
-                    'key' => $this->apiKey,
-                    'format' => $this->format
-                ]
-            ]);
+            $response = $this->getApiClient()->get("/getevents");
 
             if ($response->getStatusCode() === 200) {
                 return array_map(function (array $event) {
@@ -89,5 +154,22 @@ class Traffic
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
+    }
+
+    /**
+     * Get an api guzzle client
+     *
+     * @return Client
+     */
+    protected function getApiClient(): Client
+    {
+        return new Client([
+            'base_uri' => self::URL,
+            'headers' => self::REQUEST_HEADERS,
+            'query' => [
+                'key' => $this->apiKey,
+                'format' => $this->format
+            ]
+        ]);
     }
 }
