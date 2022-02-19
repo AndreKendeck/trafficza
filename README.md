@@ -6,7 +6,6 @@
 
 [![Total Downloads](https://img.shields.io/packagist/dt/adecks/itrafficza.svg?style=flat-square)](https://packagist.org/packages/adecks/trafficza)
 
-![GitHub Actions](https://github.com/AndreKendeck/trafficza/actions/workflows/main.yml/badge.svg)
 
   
 
