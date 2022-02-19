@@ -102,12 +102,15 @@ class Alert extends TrafficModel implements JsonSerializable
     }
 
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return (string) $this->jsonSerialize();
     }
 
-    public function jsonSerialize(): mixed
+    public function jsonSerialize() : mixed
     {
         return [
             'Id' => $this->id,

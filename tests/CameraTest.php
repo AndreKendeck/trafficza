@@ -8,8 +8,6 @@ use \Faker\Factory as FakerFactory;
 
 class CameraTest extends TestCase
 {
-    protected $faker;
-
 
     /** @test */
     public function a_camera_object_can_be_initialized()

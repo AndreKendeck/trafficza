@@ -1,52 +1,113 @@
-# Very short description of the package
+# iTraffic ZA PHP
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/adecks/itrafficza.svg?style=flat-square)](https://packagist.org/packages/adecks/itrafficza)
-[![Total Downloads](https://img.shields.io/packagist/dt/adecks/itrafficza.svg?style=flat-square)](https://packagist.org/packages/adecks/itrafficza)
-![GitHub Actions](https://github.com/adecks/itrafficza/actions/workflows/main.yml/badge.svg)
+  
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/adecks/itrafficza.svg?style=flat-square)](https://packagist.org/packages/adecks/trafficza)
+
+[![Total Downloads](https://img.shields.io/packagist/dt/adecks/itrafficza.svg?style=flat-square)](https://packagist.org/packages/adecks/trafficza)
+
+![GitHub Actions](https://github.com/AndreKendeck/trafficza/actions/workflows/main.yml/badge.svg)
+
+  
+
+This package is creates convenient classes for iTraffic Models.
+see more @ https://www.i-traffic.co.za
+
+
 
 ## Installation
 
+  
+
 You can install the package via composer:
 
+  
+
 ```bash
+
 composer require adecks/itrafficza
+
 ```
+
+  
 
 ## Usage
 
+  
+
 ```php
-// Usage description here
+
+// Interacting with the iTraffic API
+use Adecks\TrafficZA\Traffic;
+
+public function getTrafficEvents() {
+
+	$traffic = new Traffic('YOUR_API_KEY');
+	
+	$events = $traffic->getEvents();
+
+	foreach($events as $event) {
+		$event->getReported();
+	}
+}
+
 ```
+iTraffic Models
+```php
+Adecks\TrafficZA\Alert::class
+Adecks\TrafficZA\Camera::class
+Adecks\TrafficZA\Event::class
+Adecks\TrafficZA\MessageSign::class
+Adecks\TrafficZA\Roadway::class
+```
+  
 
 ### Testing
 
+  
+
 ```bash
+
 composer test
+
 ```
+
+  
 
 ### Changelog
 
+  
+
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+  
 
 ## Contributing
 
+  
+
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+  
 
 ### Security
 
+  
+
 If you discover any security related issues, please email andrekendeck@icloud.com instead of using the issue tracker.
+
+  
 
 ## Credits
 
--   [Andre Kendeck](https://github.com/adecks)
--   [All Contributors](../../contributors)
+  
+
+- [Andre Kendeck](https://github.com/adecks)
+
+  
 
 ## License
 
+  
+
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## PHP Package Boilerplate
-
-This package was generated using the [PHP Package Boilerplate](https://laravelpackageboilerplate.com) by [Beyond Code](http://beyondco.de/).
