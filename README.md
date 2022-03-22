@@ -27,7 +27,7 @@ You can install the package via composer:
 
 ```bash
 
-composer require adecks/itrafficza
+composer require adecks/trafficza
 
 ```
 
