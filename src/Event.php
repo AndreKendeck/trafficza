@@ -563,7 +563,7 @@ class Event extends TrafficModel implements JsonSerializable
         return json_encode($this->jsonSerialize());
     }
 
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return [
             'LastUpdated' => $this->lastUpdated,
