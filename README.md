@@ -2,9 +2,12 @@
 
   
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/adecks/itrafficza.svg?style=flat-square)](https://packagist.org/packages/adecks/trafficza)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/adecks/trafficza.svg?style=flat-square)](https://packagist.org/packages/adecks/trafficza)
 
-[![Total Downloads](https://img.shields.io/packagist/dt/adecks/itrafficza.svg?style=flat-square)](https://packagist.org/packages/adecks/trafficza)
+[![Total Downloads](https://img.shields.io/packagist/dt/adecks/trafficza.svg?style=flat-square)](https://packagist.org/packages/adecks/trafficza)
+
+
+[![Tests](https://github.com/AndreKendeck/trafficza/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/AndreKendeck/trafficza/actions/workflows/main.yml)
 
 
   
